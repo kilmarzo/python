@@ -1,0 +1,36 @@
+from random import randint
+
+
+chipsaldo = 10
+roulette_inzet = []
+
+while True:
+        #checken hoeveel chips de speler heeft
+    if chipsaldo == 0:
+        break
+
+    #print het aantal chips
+    print(f"Je hebt {chipsaldo} chips!")
+    print("Op welke nummers wil je inzetten")
+
+    while chipsaldo >= 0:
+    #roulette input van de console
+        roulette_input = input()
+        roulette_inzet.append(roulette_input)
+        chipsaldo -= 1
+
+        if roulette_input == "STOP" or chipsaldo == 0:
+            print("rien ne va plus")
+            break
+
+    #balletje gaat rollen en geeft uitkomst
+    roulette_uitkomst = randint(1, 36)
+    print(f"De uitkomst is {roulette_uitkomst}")
+
+    #controleren en verwerken van uitkomst en chips aantal bijwerken
+    for inzet in roulette_inzet:
+
+        if (inzet) == roulette_uitkomst:
+            chipsaldo += 35
+            print(f"Je hebt {chipsaldo}!")
+            
